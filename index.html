@@ -1,155 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Our Class Memories ❤️</title>
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-    background:linear-gradient(to bottom,#111,#8b0000);
-    color:white;
-    text-align:center;
-    overflow-x:hidden;
+background:linear-gradient(to bottom,#000000,#900000);
+color:white;
+text-align:center;
+overflow-x:hidden;
 }
 
-header{
-    padding:40px 20px;
+
+.welcome{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
 }
+
 
 h1{
-    font-size:40px;
+font-size:45px;
+animation:fade 2s;
 }
+
 
 p{
-    font-size:18px;
-    margin-top:15px;
+font-size:18px;
+margin:20px;
 }
+
 
 button{
-    margin-top:25px;
-    padding:15px 25px;
-    border:none;
-    border-radius:30px;
-    background:white;
-    color:#8b0000;
-    font-size:16px;
-    cursor:pointer;
+padding:15px 35px;
+border:none;
+border-radius:30px;
+background:white;
+color:#900000;
+font-size:17px;
+cursor:pointer;
 }
+
+
+section{
+padding:40px 20px;
+}
+
 
 .gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:15px;
-    padding:30px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
 }
+
 
 .gallery img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
-    border-radius:20px;
-    border:3px solid white;
-    transition:0.3s;
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:20px;
+border:3px solid white;
+transition:0.4s;
 }
+
 
 .gallery img:hover{
-    transform:scale(1.05);
+transform:scale(1.08);
 }
+
 
 .card{
-    margin:30px;
-    padding:25px;
-    background:rgba(255,255,255,0.15);
-    border-radius:20px;
+background:rgba(255,255,255,0.15);
+margin:25px;
+padding:25px;
+border-radius:25px;
 }
+
 
 .heart{
-    position:fixed;
-    top:-10px;
-    animation:fall 6s linear infinite;
+position:fixed;
+top:-20px;
+animation:fall linear forwards;
 }
 
+
 @keyframes fall{
-    from{
-        transform:translateY(-10vh);
-    }
-    to{
-        transform:translateY(110vh);
-    }
+
+from{
+transform:translateY(-20px);
 }
+
+to{
+transform:translateY(110vh);
+}
+
+}
+
+
+@keyframes fade{
+
+from{
+opacity:0;
+}
+
+to{
+opacity:1;
+}
+
+}
+
 </style>
 
 </head>
 
+
 <body>
 
-<header>
-<h1>🏫 Our Class Memories ❤️</h1>
-<p>A place where our laughs, friendships and memories live forever.</p>
 
-<button onclick="document.getElementById('memories').scrollIntoView()">
-Enter Memories
+<audio id="song" loop>
+<source src="classsong.mp3" type="audio/mpeg">
+</audio>
+
+
+
+<div class="welcome">
+
+<h1>🏫 Our Class Memories ❤️</h1>
+
+<p>
+A place where our friendships, laughs and unforgettable moments stay forever ✨
+</p>
+
+
+<button onclick="playSong()">
+🎵 Play Our Song
 </button>
 
-</header>
+
+</div>
 
 
-<section id="memories">
 
-<h2>📸 Our Moments</h2>
+<section>
+
+<h2>📸 Our Memories</h2>
+
+<br>
+
 
 <div class="gallery">
 
-<img src="IMG-20250626-WA0060.jpg">
-<img src="IMG-20250327-WA0056.jpg">
-<img src="IMG-20251209-WA0065.jpg">
-<img src="IMG-20250813-WA0019.jpg">
-<img src="IMG-20251209-WA0085.jpg">
-<img src="IMG-20251209-WA0060.jpg">
-<img src="IMG-20250813-WA0088.jpg">
-<img src="IMG-20251209-WA0092.jpg">
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+<img src="photo5.jpg">
+<img src="photo6.jpg">
+<img src="photo7.jpg">
+<img src="photo8.jpg">
 
 </div>
+
 
 </section>
 
 
+
+
 <div class="card">
+
 <h2>💌 Our Class</h2>
+
 <p>
-Thank you for the jokes, memories, friendships and moments we will never forget ❤️
+Thank you for every laugh, every joke and every memory.
+No matter where we go, this class will always be special ❤️
 </p>
+
 </div>
+
+
+
+
+<div class="card">
+
+<h2>🌟 Memories We Made</h2>
+
+<p>
+😂 Funny moments<br>
+🎉 School events<br>
+📚 Learning together<br>
+🤍 Friendships that will last
+</p>
+
+</div>
+
+
 
 
 <script>
 
+
+function playSong(){
+
+document.getElementById("song").play();
+
+}
+
+
+
 setInterval(()=>{
+
 let heart=document.createElement("div");
+
 heart.className="heart";
+
 heart.innerHTML="❤️";
+
 heart.style.left=Math.random()*100+"vw";
+
 heart.style.fontSize=(15+Math.random()*25)+"px";
+
 heart.style.animationDuration=(3+Math.random()*5)+"s";
+
 
 document.body.appendChild(heart);
 
+
 setTimeout(()=>{
+
 heart.remove();
+
 },8000);
+
 
 },500);
 
+
 </script>
 
+
 </body>
-  </html>
+
+</html>
